@@ -16,16 +16,24 @@ describe('Input', () => {
     });
 
     it('catch change event', () => {
-        let inputHasChanged = false;
+        let numberOfChanges = 0;
 
         function handleChange() {
-            inputHasChanged = true;
+            numberOfChanges++;
         }
 
-        const wrapper = shallow(<Input label="Name" onClick={handleChange}/>);
-        wrapper.find('input').simulate('click');
-
-        expect(inputHasChanged).toBe(true)
+        const wrapper = shallow(<Input label="Name" handleChange={handleChange}/>);
+        wrapper.find('input').simulate('change', {
+            target: {
+                value: 'value'
+            }
+        });
+        wrapper.find('input').simulate('change', {
+            target: {
+                value: 'value'
+            }
+        });
+        expect(numberOfChanges).toBe(2)
 
     })
 });

@@ -26,7 +26,7 @@ class App extends Component {
     }
 
     addRectangleModal() {
-        this.showModal()
+        this.showModal();
     }
 
     showModal() {
@@ -41,19 +41,29 @@ class App extends Component {
         })
     }
 
+    submitForm(properties) {
+        if( !properties.width || !properties.height || !properties.left || !properties.top ) {
+            alert('Please fill all fields');
+            return;
+        }
+        this.props.actions.addRectangle(properties);
+        this.closeModal();
+    }
+
     render() {
         return (
             <div className="container-fluid">
                 {this.state.isAddModalVisible ?
                     <AddModal
-                        onSubmitAction={this.props.actions.addRectangle.bind(this)}
+                        onSubmitAction={this.submitForm.bind(this)}
                         closeModal={this.closeModal.bind(this)}/>
                     : null
                 }
 
                 <Header
                     addRectangleModal={this.addRectangleModal.bind(this)}
-                    removeAllRectangles={this.props.actions.removeAllRectangles.bind(this)}/>
+                    removeAllRectangles={this.props.actions.removeAllRectangles.bind(this)}
+                    rectangles={this.props.rectangles}/>
                 <RectanglesContainer rectangles={this.props.rectangles}/>
             </div>
         );

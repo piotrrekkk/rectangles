@@ -3,16 +3,6 @@ import * as React from 'react';
 import Rectangle from '../Rectangle/Rectangle';
 import './style.css';
 
-/**
- * @interface rectangleStyle
- {
-     width : 'cssProperty',
-     height: 'cssProperty',
-     top   : 'cssProperty',
-     left  : 'cssProperty'
- }
- */
-
 class RectanglesContainer extends React.Component {
 
 
@@ -23,7 +13,6 @@ class RectanglesContainer extends React.Component {
     }
 
     render() {
-        console.log(this.getRectangles())
         return (
             <div className='container-fluid'>
                 {this.getRectangles()}

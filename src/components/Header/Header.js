@@ -1,5 +1,6 @@
 import * as React from 'react';
 import AddButton from '../Buttons/Button';
+import Limit from '../Limit/Limit';
 
 const Header = (props) => {
     return (
@@ -7,11 +8,14 @@ const Header = (props) => {
             <AddButton
                 onClickAction={props.addRectangleModal}
                 label="Add rectangle"
-                type="btn-primary"/>
+                type="btn-primary"
+                disabled={props.rectangles.length > 5}/>
             <AddButton
                 onClickAction={props.removeAllRectangles}
                 label="Remove all rectangles"
                 type="btn-warning"/>
+
+            <Limit rectangles={props.rectangles}/>
         </div>
     )
 };

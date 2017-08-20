@@ -1,8 +1,9 @@
 .rectangle {
-    width: 33vw;
-    top:0;
-    left:0;
-    height: 33vh;
+    /*width: 33vw;/*/
+    /*top:0;*/
+    /*left:0;*/
+    /*height: 33vh;*/
     background: #222222;
+    border: 5px solid white;
     position: absolute;
 }

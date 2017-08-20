@@ -10,22 +10,20 @@ class Input extends React.Component {
     }
 
     handleChange(e) {
-        if(!e) return;
-        this.setState({
-            value: e.target.value
-        });
+        this.props.handleChange(e.target.value);
+
     }
 
     render() {
         return (
             <div className="form-group">
-                <label htmlFor="input" className="col-sm-2 control-label">{this.props.label}:</label>
-                <div className="col-sm-10">
+                <label className="col-sm-4 control-label">{this.props.label}:</label>
+                <div className="col-sm-8">
                     <input
-                        type="text"
+                        type="number"
                         className="form-control"
                         placeholder={this.props.label}
-                        onClick={this.handleChange.bind(this)}/>
+                        onChange={this.handleChange.bind(this)}/>
                 </div>
             </div>
 
