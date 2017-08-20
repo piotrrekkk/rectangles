@@ -1,6 +1,11 @@
 import {ADD_RECTANGLE, REMOVE_ALL_RECTANGLES, REMOVE_RECTANGLE} from '../const/ActionTypes';
 
-const initialState = [{}];
+const initialState = [{
+    width : '20vw',
+    height: '20vh',
+    top   : '20px',
+    left  : '20px'
+}];
 
 export default function rectangles(state = initialState, action) {
 

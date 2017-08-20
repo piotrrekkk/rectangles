@@ -22,7 +22,7 @@ class AddModal extends React.Component {
                             <button type="button" className="btn btn-default" data-dismiss="modal"
                                     onClick={this.props.closeModal}>Close
                             </button>
-                            <button type="button" className="btn btn-primary">Save changes</button>
+                            <button type="button" className="btn btn-primary" onClick={this.props.onSubmitAction}>Save changes</button>
                         </div>
                     </div>
                 </div>

@@ -3,28 +3,6 @@ import * as React from 'react';
 import Rectangle from '../Rectangle/Rectangle';
 import './style.css';
 
-class RectanglesContainer extends React.Component {
-
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            rectangles: []
-        };
-    }
-
-    render() {
-        return (
-            <div className='container-fluid'>
-                <Rectangle/>
-            </div>
-        )
-    }
-}
-
-export default RectanglesContainer;
-
-
 /**
  * @interface rectangleStyle
  {
@@ -34,3 +12,26 @@ export default RectanglesContainer;
      left  : 'cssProperty'
  }
  */
+
+class RectanglesContainer extends React.Component {
+
+
+    getRectangles() {
+        return (this.props.rectangles.map((rectangle, index) => {
+            return <Rectangle key={index} properties={rectangle}/>
+        }))
+    }
+
+    render() {
+        console.log(this.getRectangles())
+        return (
+            <div className='container-fluid'>
+                {this.getRectangles()}
+            </div>
+        )
+    }
+}
+
+export default RectanglesContainer;
+
+
